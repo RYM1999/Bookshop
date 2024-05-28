@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Account Contact List" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <template if:true={accounts}>
+                <lightning-combobox
+                    name="accountList"
+                    label="Select Account"
+                    value={selectedAccountId}
+                    placeholder="Select an Account"
+                    options={accountOptions}
+                    onchange={handleAccountChange}>
+                </lightning-combobox>
+            </template>
+        </div>
+    <br>
+         <div class="slds-m-around_medium">
+            <template if:true={contacts}>
+                <lightning-datatable
+                    key-field="id"
+                    data={contacts}
+                    columns={columns}
+                    hide-checkbox-column="true">
+                </lightning-datatable>
+            </template>
+         </div>
+       
+    </lightning-card>
+</template>

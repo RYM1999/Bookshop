@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Book List" icon-name="custom:custom19">
+        <lightning-button label="Create New Book" onclick={handleCreateNew}></lightning-button><br>
+        <template if:true={books}>
+            <lightning-datatable
+                key-field="id"
+                data={books}
+                columns={columns}
+                onrowaction={handleRowAction}
+                hide-checkbox-column="true">
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+
+    <c-book-modal book-id={selectedBookId} if:true={showModal}></c-book-modal>
+</template>
